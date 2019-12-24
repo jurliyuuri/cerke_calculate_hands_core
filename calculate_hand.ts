@@ -5,6 +5,7 @@ type ObtainableProf = "兵" | "弓" | "車" | "虎" | "馬" | "筆" | "巫" | "�
 type ObtainablePieces2 = {color: "黒" | "赤", prof: ObtainableProf};
 
 type Hand = "王" | "獣" | "同色獣" | "地心" | "同色地心" | "馬弓兵" | "同色馬弓兵" | "助友" | "同色助友" | "戦集" | "同色戦集" | "行行" | "同色行行" | "筆兵無傾" | "同色筆兵無傾" | "闇戦之集" | "同色闇戦之集" | "無抗行処" | "同色無抗行処";
+type HandAndNegativeHand = Hand | "撃皇" | "皇再来";
 
 const toObtainablePieces2 : {[P in ObtainablePieces]: ObtainablePieces2} = {
     "黒兵": {color: "黒", prof: "兵"},
@@ -30,7 +31,7 @@ const toObtainablePieces2 : {[P in ObtainablePieces]: ObtainablePieces2} = {
 }
 
 const {calculate_hands_and_score_from_pieces, hand_to_score} = (() => {
-const toScore: {[P in Hand]: number} = {
+const toScore: {[P in HandAndNegativeHand]: number} = {
     "無抗行処": 50,
     "同色無抗行処": 52,
     "筆兵無傾": 10,
@@ -49,7 +50,9 @@ const toScore: {[P in Hand]: number} = {
     "助友": 3,
     "同色助友": 5,
     "闇戦之集": 3,
-    "同色闇戦之集": 5
+    "同色闇戦之集": 5,
+    "皇再来": -3,
+    "撃皇": -5
 }
 
 type PieceNumMap =  {[P in ObtainableProf]: {"黒": number, "赤": number}};

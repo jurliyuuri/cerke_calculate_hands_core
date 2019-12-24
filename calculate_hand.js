@@ -41,7 +41,9 @@ const { calculate_hands_and_score_from_pieces, hand_to_score } = (() => {
         "助友": 3,
         "同色助友": 5,
         "闇戦之集": 3,
-        "同色闇戦之集": 5
+        "同色闇戦之集": 5,
+        "皇再来": -3,
+        "撃皇": -5
     };
     function calculate_hands_with_no_king(count) {
         function has(prof) {
