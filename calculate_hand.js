@@ -21,7 +21,7 @@ const toObtainablePieces2 = {
     "黒船": { color: "黒", prof: "船" },
     "赤船": { color: "赤", prof: "船" }
 };
-const calculate_hands_and_score_from_pieces = (() => {
+const { calculate_hands_and_score_from_pieces, hand_to_score } = (() => {
     const toScore = {
         "無抗行処": 50,
         "同色無抗行処": 52,
@@ -243,7 +243,7 @@ const calculate_hands_and_score_from_pieces = (() => {
             return { "error": true, "too_many": hands.too_many };
         }
     }
-    return calculate_hands_and_score_from_pieces;
+    return { calculate_hands_and_score_from_pieces, hand_to_score: toScore };
 })();
 const generate_example = len => {
     let piece_list = ["黒兵", "黒兵", "黒兵", "黒兵", "黒兵", "黒兵", "黒兵", "黒兵", "赤兵", "赤兵", "赤兵", "赤兵", "赤兵", "赤兵", "赤兵", "赤兵", "黒弓", "黒車", "黒虎", "黒馬", "黒筆", "黒巫", "黒将", "黒弓", "黒車", "黒虎", "黒馬", "黒筆", "黒巫", "黒将", "赤弓", "赤車", "赤虎", "赤馬", "赤筆", "赤巫", "赤将", "赤弓", "赤車", "赤虎", "赤馬", "赤筆", "赤巫", "赤将", "黒王", "赤王", "黒船", "赤船"];

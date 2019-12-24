@@ -29,7 +29,7 @@ const toObtainablePieces2 : {[P in ObtainablePieces]: ObtainablePieces2} = {
     "赤船": {color: "赤", prof: "船"}
 }
 
-const calculate_hands_and_score_from_pieces = (() => {
+const {calculate_hands_and_score_from_pieces, hand_to_score} = (() => {
 const toScore: {[P in Hand]: number} = {
     "無抗行処": 50,
     "同色無抗行処": 52,
@@ -235,7 +235,7 @@ function calculate_hands_and_score_from_pieces(ps: ObtainablePieces[]): {"error"
     }
 }
 
-return calculate_hands_and_score_from_pieces;
+return {calculate_hands_and_score_from_pieces, hand_to_score: toScore};
 })();
 
 const generate_example: (len: number) => ObtainablePieces[] = len => {
