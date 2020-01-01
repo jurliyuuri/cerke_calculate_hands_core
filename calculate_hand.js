@@ -256,3 +256,6 @@ const generate_example = len => {
     }
     return piece_list.slice(0, len);
 };
+if (typeof window === 'undefined') {
+    module.exports = { calculate_hands_and_score_from_pieces, hand_to_score };
+}
